@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>H5 animate</title>
+	<link rel="stylesheet" href="css/css.css">
+	<script src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="animate-warp">
+			<div class="animate-warp-relative">
+				<!-- leftToRight -->
+				<div class="part1 part " style="display:none;">
+					<div class="part1-king part1-spin"></div>
+					<div class="part1-wheel part1-spin"></div>
+				</div>
+				<!-- rightToLeft -->
+				<div class="part2 part rightToLeft" style="display:none;">
+					<div class="part2-fristman part2-shake"></div>
+					<div class="part2-lastman part2-shake"></div>
+				</div>
+				<div class="part3" style="display:block;">
+					<div class="part3-k1 part3-k"></div>
+					<div class="part3-k2 part3-k"></div>
+					<div class="part3-k3 part3-k"></div>
+					<div class="part3-k4 part3-k"></div>
+				</div>
+				<!-- rightToLeft -->
+				<div class="part4 part rightToLeft" style="display:none;"></div>
+			</div>
+			<a href="#" class="download"></a>
+		</div>
+	</div>
+</body>
+<script>
+	// CONTAINER BEGIN
+    var screen_Width = document.documentElement.clientWidth;
+	var screen_Height = document.documentElement.clientHeight;
+	$('.container').css({width:screen_Width});
+	$('.container').css({height:screen_Height});
+	// CONTAINER END
+
+
+    function part1(){
+    	rmClass_part1()
+
+    	$('.part2').hide();
+    	$('.part3').hide();
+    	$('.part4').hide();
+
+    	$('.part1').show();
+    	$('.part1').addClass('leftToRight');
+    }
+    function rmClass_part1(){
+    	$('.part1').removeClass('leftToRight');
+    }
+    // part1()
+
+    function part2(){
+    	rmClass_part2();
+
+    	$('.part1').hide();
+    	$('.part2').hide();
+    	$('.part3').hide();
+
+    	$('.part2').show();
+    	$('.part2').addClass('rightToLeft');
+    }
+    function rmClass_part2(){
+    	$('.part2').removeClass('rightToLeft');
+    }
+    // part2()
+
+    function part3(){
+    	rmClass_part3();
+
+    	$('.part1').hide();
+    	$('.part2').hide();
+    	$('.part4').hide();
+
+    	$('.part3').show();
+
+    	$('.part3-k1').addClass('part3-k1-LTC');
+        $('.part3-k2').addClass('part3-k2-LTC');
+        $('.part3-k3').addClass('part3-k3-LTC');
+        $('.part3-k4').addClass('part3-k4-LTC');
+    	setTimeout(function(){
+            $('.part3-k1').addClass('part3-skew');
+            $('.part3-k2').addClass('part3-skew');
+            $('.part3-k3').addClass('part3-skew');
+            $('.part3-k4').addClass('part3-skew');
+        },1000)
+        setTimeout(function(){
+            $('.part3-k1').addClass('part3-k1-rotate');
+            $('.part3-k2').addClass('part3-k2-rotate');
+            $('.part3-k3').addClass('part3-k3-rotate');
+            $('.part3-k4').addClass('part3-k4-rotate');
+        },1500)
+        setTimeout(function(){
+            $('.part3-k1').addClass('part3-k1-rotate-reduce');
+            $('.part3-k2').addClass('part3-k2-rotate-reduce');
+            $('.part3-k3').addClass('part3-k3-rotate-reduce');
+            $('.part3-k4').addClass('part3-k4-rotate-reduce');
+        },2000)
+        setTimeout(function(){
+            $('.part3-k1').addClass('part3-k1-CTR');
+            $('.part3-k2').addClass('part3-k2-CTR');
+            $('.part3-k3').addClass('part3-k3-CTR');
+            $('.part3-k4').addClass('part3-k4-CTR');
+        },2800)
+
+    }
+    function rmClass_part3(){
+    	$('.part3-k1').removeClass('part3-k1-LTC');
+        $('.part3-k2').removeClass('part3-k2-LTC');
+        $('.part3-k3').removeClass('part3-k3-LTC');
+        $('.part3-k4').removeClass('part3-k4-LTC');
+
+        $('.part3-k1').removeClass('part3-skew');
+        $('.part3-k2').removeClass('part3-skew');
+        $('.part3-k3').removeClass('part3-skew');
+        $('.part3-k4').removeClass('part3-skew');
+
+        $('.part3-k1').removeClass('part3-k1-rotate');
+        $('.part3-k2').removeClass('part3-k2-rotate');
+        $('.part3-k3').removeClass('part3-k3-rotate');
+        $('.part3-k4').removeClass('part3-k4-rotate');
+
+        $('.part3-k1').removeClass('part3-k1-rotate-reduce');
+        $('.part3-k2').removeClass('part3-k2-rotate-reduce');
+        $('.part3-k3').removeClass('part3-k3-rotate-reduce');
+        $('.part3-k4').removeClass('part3-k4-rotate-reduce');
+
+        $('.part3-k1').removeClass('part3-k1-CTR');
+        $('.part3-k2').removeClass('part3-k2-CTR');
+        $('.part3-k3').removeClass('part3-k3-CTR');
+        $('.part3-k4').removeClass('part3-k4-CTR');
+    }
+    // part3()
+
+	function part4(){
+    	rmClass_part4();
+
+    	$('.part1').hide();
+    	$('.part2').hide();
+    	$('.part3').hide();
+
+    	$('.part4').show();
+    	$('.part4').addClass('rightToLeft');
+    }
+    function rmClass_part4(){
+    	$('.part4').removeClass('rightToLeft');
+    }
+    // part4()
+
+  	
+  	// INIT
+  	function init(){
+  		setTimeout('part1()',0);
+  		setTimeout('part2()',4000);
+  		setTimeout('part3()',8000);
+  		setTimeout('part4()',12000);
+  	}
+  	init();
+  	setInterval('init()',16000)
+</script>
+</html>
